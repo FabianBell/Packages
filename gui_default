@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+from default_gui.gui import Form
+
+def main(args):
+    # < put code here >
+    pass
+
+if __name__ == '__main__':
+    # types: text, dir_path, file_path
+    fields = [
+        #('<name>', '<type>')
+    ]
+    button_name = '<name>'
+    form = Form(fields, button_name, main)
+    form.run()
