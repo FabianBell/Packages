@@ -5,3 +5,6 @@ NOT READY YET
 ## Guis
 * Form
 * TODO
+
+## Install
+`pip install bell-gui`
