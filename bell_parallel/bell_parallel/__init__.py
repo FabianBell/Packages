@@ -17,8 +17,6 @@ def parallel(nproz=4, tag=None):
     def run_parallel(func):
         @wraps(func)
         def run(data):
-            if current_process().daemon is True:
-                raise Exception(func)
             address = id(func)
             def pack(entry):
                 return address, entry
