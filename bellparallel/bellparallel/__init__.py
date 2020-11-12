@@ -16,7 +16,7 @@ def parallel(nproz=4, tag=None):
     """
     def run_parallel(func):
         @wraps(func)
-        def run(data):
+        def run(data, length=None):
             address = id(func)
             def pack(entry):
                 return address, entry
@@ -24,7 +24,7 @@ def parallel(nproz=4, tag=None):
             with Pool(nproz) as pool:
                 res = list(tqdm(
                     pool.imap(_exe_function, iterator),
-                    total=len(data),
+                    total=len(data) if length is None else length,
                     desc=tag
                 ))
             return res

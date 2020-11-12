@@ -12,6 +12,10 @@ def inc_normal(entry):
 def inc_tag_nproz(entry):
     return inc(entry)
 
+def generator():
+    for i in range(100):
+        yield i
+
 class TestDecorator(unittest.TestCase):
     
     def check(self, func):
@@ -25,6 +29,13 @@ class TestDecorator(unittest.TestCase):
 
     def test_tag_and_nproz(self):
         self.check(inc_tag_nproz)
+    
+    def test_generator(self):
+        gen = generator()
+        p_out = inc_normal(gen, length=100)
+        out = [inc(elem) for elem in generator()]
+        self.assertEqual(p_out, out)
+
 
 if __name__ == '__main__':
     unittest.main()
