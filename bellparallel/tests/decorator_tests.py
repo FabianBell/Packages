@@ -1,4 +1,4 @@
-from bell_parallel import parallel
+from bellparallel import parallel
 import unittest
 
 def inc(entry):

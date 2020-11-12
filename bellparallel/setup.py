@@ -4,7 +4,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(name='bell_parallel',
+setuptools.setup(name='bellparallel',
     version='0.0.1',
     description='Parallel execution utils',
     long_description=long_description,
