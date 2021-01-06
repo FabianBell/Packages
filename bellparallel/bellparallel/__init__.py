@@ -9,7 +9,7 @@ CNX_INDI = '_cnx_'
 def _exe_function(entry):
     adress, data = entry 
     func = ctypes.cast(adress, ctypes.py_object).value
-    if isinstance(data, tuple) and data[0] == CNX_INDI and isinstance(data[1], tuple):
+    if isinstance(data, tuple) and len(data) == 2 and isinstance(data[0], str) and data[0] == CNX_INDI and isinstance(data[1], tuple):
         adress, data = data[1]
         cnx = ctypes.cast(adress, ctypes.py_object).value
         return func(cnx, data)
