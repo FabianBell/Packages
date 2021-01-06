@@ -3,7 +3,6 @@ from multiprocessing import current_process
 from tqdm import tqdm
 from functools import wraps
 import ctypes
-import types
 
 CNX_INDI = '_cnx_'
 
@@ -47,9 +46,10 @@ def parallel(nproz=4, tag=None):
             address = id(func)
             iterator = map(_pack(address), data)
             with Pool(nproz) as pool:
+                length = len(data) if length is None else length
                 res = list(tqdm(
-                    pool.imap(_exe_function, iterator),
-                    total=len(data) if length is None else length,
+                    pool.imap(_exe_function, iterator, length//nproz),
+                    total=length,
                     desc=tag
                 ))
             return res
