@@ -48,7 +48,7 @@ def parallel(nproz=4, tag=None):
             with Pool(nproz) as pool:
                 length = len(data) if length is None else length
                 res = list(tqdm(
-                    pool.imap(_exe_function, iterator, length//nproz),
+                    pool.imap(_exe_function, iterator),
                     total=length,
                     desc=tag
                 ))

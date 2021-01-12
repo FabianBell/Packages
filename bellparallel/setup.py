@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(name='bellparallel',
-    version='0.0.4',
+    version='0.0.5',
     description='Parallel execution utils',
     long_description=long_description,
     long_description_content_type="text/markdown",
